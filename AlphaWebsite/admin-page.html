@@ -1,0 +1,751 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Admin Page</title>
+
+    <Style>
+        body {
+            margin: 0;
+            text-transform: capitalize;
+        }
+        /* start styling navigation bar*/
+        header {
+            background-color: #154360;
+            height: 50px;
+            width: 77%;
+            float: right;
+        }
+
+        #logout {
+            margin: 5px 10px;
+            float: right;
+            color: white;
+            background-color: #154360;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .logo {
+            width: 100px;
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        .homePageButton {
+            float: left;
+            width: 30px;
+            height: 30px;
+            padding: 8px;
+            margin-left: 5px;
+            margin-top: 7px;
+            background-image: url("images/menuIcon.png");
+            background-color: #154360;
+            border: none;
+        }
+
+        .HeaderDiv /* the div next to the header*/ {
+            width: 23%;
+            height: 50px;
+            float: left;
+            background-color: #132d41;
+            color: white;
+            text-align: center;
+            font-family: fantasy;
+        }
+
+            .HeaderDiv p /* alpha travel */ {
+                padding: 10px;
+                font-size: 20px;
+                margin-block-start: 0;
+            }
+        /* end styling navigation bar*/
+
+        /* start styling aside div */
+        #asideDiv {
+            width: 23%;
+            background-color: #17202A;
+            height: 710px;
+            float: left;
+            margin: 0;
+        }
+
+        .adminPic {
+            height: 150px;
+            width: 150px;
+            margin-left: 28%;
+            margin-top: 40px;
+        }
+
+        figcaption /* admin name */ {
+            text-transform: capitalize;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .listButton {
+            display: block;
+            padding: 25px;
+            background-color: #17202A;
+            width: 100%;
+            border-width: 0 0 2px;
+            border-bottom-color: #283747;
+            border-top-color: #283747;
+            text-transform: capitalize;
+            color: white;
+            font-size: 20px;
+        }
+
+        ul {
+            padding-inline-start: 0;
+            list-style-type: none;
+        }
+
+        .listButton:hover {
+            background-color: #273746;
+        }
+        /* end styling aside div*/
+
+        /* start styling home div*/
+        .contentDiv {
+            background-color: #88cdff;
+            float: right;
+            width: 77%;
+            height: 710px;
+            margin: 0;
+        }
+
+            .contentDiv p /* dashboard word*/ {
+                font-size: 30px;
+                margin: 10px 20px;
+                padding: 0;
+                font-family: tahoma;
+            }
+
+        #visitedCountriesDiv /* world map div*/ {
+            width: 80%;
+            height: 500px;
+            background-color: white;
+            float: left;
+            margin: 40px;
+            margin-left: 100px;
+            border-radius: 20px;
+        }
+
+        .worldMapPic {
+            width: 635px;
+            height: 350px;
+            margin: 15px;
+            float: left;
+        }
+        /* percentage of visited countries*/
+        meter {
+            height: 25px;
+            width: 230px;
+            margin-bottom: 10px;
+        }
+
+        .france::-webkit-meter-optimum-value {
+            background: rgb(85, 9, 156);
+        }
+
+        .usa::-webkit-meter-optimum-value {
+            background: darkred;
+        }
+
+        .china::-webkit-meter-optimum-value {
+            background: green;
+        }
+
+        .turkey::-webkit-meter-optimum-value {
+            background: orange;
+        }
+
+        .russia::-webkit-meter-optimum-value {
+            background: red;
+        }
+
+        .countriesList {
+            margin: 20px;
+            float: right;
+        }
+
+        label {
+            font-size: 18px;
+            
+        }
+
+        .percentage {
+            float: right;
+        }
+        /* end of home div styling*/
+
+        /* start styling font style page*/
+        .fontStyleFieldset, .fontStyleFieldset2, .fontStyleFieldset3 /* general styling for font style fieldsets*/ {
+            float: left;
+            border-radius: 20px;
+            margin: 20px;
+            border-width: 3px;
+        }
+
+        .fontStyleFieldset {
+            background-color: #3498DB;
+            border-color: blue;
+        }
+
+        .fontStyleFieldset2 {
+            background-color: #1ABC9C;
+            border-color: green;
+        }
+
+        .fontStyleFieldset3 {
+            background-color: #F2D7D5;
+            border-color: darkred;
+            padding-left: 20px;
+            padding-bottom: 25px;
+            float: right;
+        }
+
+        #fontStyleDiv li, #fontColorDiv li, #backgroundDiv li /* list of buttons inside the font style fieldsets*/ {
+            display: inline;
+        }
+
+        legend {
+            font-size: 35px;
+        }
+
+        .fontStyleButtons, .fontStyleButtons2, .fontStyleButtons3 /* general styling for buttons inside the font style fieldsets*/ {
+            width: 170px;
+            margin: 10px;
+            padding: 15px;
+            border-width: 3px;
+            text-transform: capitalize;
+            border-radius: 10px;
+            font-size: 25px;
+            margin-right: 20px;
+        }
+
+        .fontStyleButtons {
+            border-color: #AED6F1;
+            background-color: #EBF5FB;
+        }
+
+        .fontStyleButtons2 {
+            border-color: #A3E4D7;
+            background-color: #E8F8F5;
+        }
+
+        .fontStyleButtons3 {
+            border-width: 3px;
+            width: 200px;
+            margin-left: 15px;
+            margin-top: 10px;
+            font-size: 30px;
+            border-color: #E6B0AA;
+            background-color: maroon;
+            color: white;
+        }
+
+        .fontStyleButtons:hover {
+            border-color: rgb(4, 84, 233);
+            background-color: #2874A6;
+            color: white;
+        }
+
+        .fontStyleButtons2:hover {
+            border-color: green;
+            background-color: #148F77;
+            color: white;
+        }
+
+        .fontStyleButtons3:hover {
+            border-color: darkred;
+        }
+        /* end styling font style page*/
+
+        /* start styling font color page*/
+        .fontColorFieldset, .backgroundFieldset {
+            width: 50%;
+            margin-left: 23%;
+            border-radius: 50px;
+            border-width: 3px;
+        }
+
+        .fontColorFieldset {
+            margin-top: 60px;
+            background-color: #A569BD;
+            border-color: #5B2C6F;
+        }
+
+        .fontColorButtons {
+            border-radius: 40px;
+            width: 100px;
+            padding: 40px;
+            margin: 20px;
+            border-color: white;
+            border-width: 3px;
+        }
+
+        .fontColorFieldset .fontColorButtons:hover {
+            border-color: #5B2C6F;
+        }
+
+        .fontColorButtonsReset {
+            width: 300px;
+            padding: 10px;
+            border-radius: 40px;
+            color: white;
+            margin: 20px;
+            margin-left: 36%;
+            margin-top: 40px;
+            font-size: 30px;
+            text-transform: capitalize;
+            border-color: #E6B0AA;
+            background-color: maroon;
+            border-width: 3px;
+        }
+
+            .fontColorButtonsReset:hover {
+                border-color: darkred;
+            }
+
+        #fontColorDiv hr {
+            margin-top: 30px;
+            border-color: indigo;
+            border-width: 2px;
+        }
+        /* end styling font color page*/
+
+        /* start styling background color page*/
+        .backgroundFieldset {
+            border-color: #873600;
+            background-color: #F4D03F;
+        }
+
+            .backgroundFieldset .fontColorButtons:hover {
+                border-color: #873600;
+            }
+
+        #backgroundDiv hr {
+            margin-top: 30px;
+            border-color: #873600;
+            border-width: 2px;
+        }
+        /* end styling background color page*/
+    </Style>
+
+    <script>
+            function fontStylePage()
+            {
+                document.getElementById("visitedCountriesDiv").style.display = "none";
+                document.getElementById("fontColorDiv").style.display = "none";
+                document.getElementById("backgroundDiv").style.display = "none";
+                document.getElementById("fontStyleDiv").style.display = "block";
+            }
+            function fontColorPage()
+            {
+                document.getElementById("visitedCountriesDiv").style.display = "none";
+                document.getElementById("fontStyleDiv").style.display = "none";
+                document.getElementById("backgroundDiv").style.display = "none";
+                document.getElementById("fontColorDiv").style.display = "block";
+            }
+            function backgroundPage()
+            {
+                document.getElementById("visitedCountriesDiv").style.display = "none";
+                document.getElementById("fontStyleDiv").style.display = "none";
+                document.getElementById("fontColorDiv").style.display = "none";
+                document.getElementById("backgroundDiv").style.display = "block";
+            }
+            function defaultPage()
+            {
+                document.getElementById("fontStyleDiv").style.display = "none";
+                document.getElementById("fontColorDiv").style.display = "none";
+                document.getElementById("backgroundDiv").style.display = "none";
+                document.getElementById("visitedCountriesDiv").style.display = "block";
+            }
+            function changeBackground(color)
+            {
+                document.getElementById("mainContentDiv").style.backgroundColor = color;
+            }
+            function changeFontType(type)
+            {
+                document.getElementById("adminName").style.fontFamily = type;
+                document.getElementById("logout").style.fontFamily = type;
+                document.getElementById("fontStyle").style.fontFamily = type;
+                document.getElementById("fontColor").style.fontFamily = type;
+                document.getElementById("backColor").style.fontFamily = type;
+                document.getElementById("dashboard").style.fontFamily = type;
+                document.getElementById("bold").style.fontFamily = type;
+                document.getElementById("italic").style.fontFamily = type;
+                document.getElementById("normal").style.fontFamily = type;
+                document.getElementById("reset1").style.fontFamily = type;
+                document.getElementById("reset2").style.fontFamily = type;
+                document.getElementById("countries").style.fontFamily = type;
+                document.getElementById("per1").style.fontFamily = type;
+                document.getElementById("per2").style.fontFamily = type;
+                document.getElementById("per3").style.fontFamily = type;
+                document.getElementById("per4").style.fontFamily = type;
+                document.getElementById("per5").style.fontFamily = type;
+                document.getElementById("coun1").style.fontFamily = type;
+                document.getElementById("coun2").style.fontFamily = type;
+                document.getElementById("coun3").style.fontFamily = type;
+                document.getElementById("coun4").style.fontFamily = type;
+                document.getElementById("coun5").style.fontFamily = type;
+                document.getElementById("legend1").style.fontFamily = type;
+                document.getElementById("legend2").style.fontFamily = type;
+                document.getElementById("legend3").style.fontFamily = type;
+                document.getElementById("legend4").style.fontFamily = type;
+                document.getElementById("legend5").style.fontFamily = type;
+            }
+            function boldWeight(styl)
+            {
+                document.getElementById("adminName").style.fontWeight= styl;
+                document.getElementById("logout").style.fontWeight = styl;
+                document.getElementById("fontStyle").style.fontWeight = styl;
+                document.getElementById("fontColor").style.fontWeight = styl;
+                document.getElementById("backColor").style.fontWeight = styl;
+                document.getElementById("dashboard").style.fontWeight = styl;
+                document.getElementById("type1").style.fontWeight = styl;
+                document.getElementById("type2").style.fontWeight = styl;
+                document.getElementById("type3").style.fontWeight = styl;
+                document.getElementById("type4").style.fontWeight = styl;
+                document.getElementById("type5").style.fontWeight = styl;
+                document.getElementById("type6").style.fontWeight = styl;
+                document.getElementById("type7").style.fontWeight = styl;
+                document.getElementById("type8").style.fontWeight = styl;
+                document.getElementById("type9").style.fontWeight = styl;
+                document.getElementById("type10").style.fontWeight = styl;
+                document.getElementById("reset1").style.fontWeight = styl;
+                document.getElementById("reset2").style.fontWeight = styl;
+                document.getElementById("countries").style.fontWeight = styl;
+                document.getElementById("per1").style.fontWeight = styl;
+                document.getElementById("per2").style.fontWeight = styl;
+                document.getElementById("per3").style.fontWeight = styl;
+                document.getElementById("per4").style.fontWeight = styl;
+                document.getElementById("per5").style.fontWeight = styl;
+                document.getElementById("coun1").style.fontWeight = styl;
+                document.getElementById("coun2").style.fontWeight = styl;
+                document.getElementById("coun3").style.fontWeight = styl;
+                document.getElementById("coun4").style.fontWeight = styl;
+                document.getElementById("coun5").style.fontWeight = styl;
+                document.getElementById("legend1").style.fontWeight = styl;
+                document.getElementById("legend2").style.fontWeight = styl;
+                document.getElementById("legend3").style.fontWeight = styl;
+                document.getElementById("legend4").style.fontWeight = styl;
+                document.getElementById("legend5").style.fontWeight = styl;
+            }
+            function changeFontStyle(styl)
+            {
+                document.getElementById("adminName").style.fontStyle = styl;
+                document.getElementById("logout").style.fontStyle = styl;
+                document.getElementById("fontStyle").style.fontStyle = styl;
+                document.getElementById("fontColor").style.fontStyle = styl;
+                document.getElementById("backColor").style.fontStyle = styl;
+                document.getElementById("dashboard").style.fontStyle = styl;
+                document.getElementById("type1").style.fontStyle = styl;
+                document.getElementById("type2").style.fontStyle = styl;
+                document.getElementById("type3").style.fontStyle = styl;
+                document.getElementById("type4").style.fontStyle = styl;
+                document.getElementById("type5").style.fontStyle = styl;
+                document.getElementById("type6").style.fontStyle = styl;
+                document.getElementById("type7").style.fontStyle = styl;
+                document.getElementById("type8").style.fontStyle = styl;
+                document.getElementById("type9").style.fontStyle = styl;
+                document.getElementById("type10").style.fontStyle = styl;
+                document.getElementById("reset1").style.fontStyle = styl;
+                document.getElementById("reset2").style.fontStyle = styl;
+                document.getElementById("countries").style.fontStyle = styl;
+                document.getElementById("per1").style.fontStyle = styl;
+                document.getElementById("per2").style.fontStyle = styl;
+                document.getElementById("per3").style.fontStyle = styl;
+                document.getElementById("per4").style.fontStyle = styl;
+                document.getElementById("per5").style.fontStyle = styl;
+                document.getElementById("coun1").style.fontStyle = styl;
+                document.getElementById("coun2").style.fontStyle = styl;
+                document.getElementById("coun3").style.fontStyle = styl;
+                document.getElementById("coun4").style.fontStyle = styl;
+                document.getElementById("coun5").style.fontStyle = styl;
+                document.getElementById("legend1").style.fontStyle = styl;
+                document.getElementById("legend2").style.fontStyle = styl;
+                document.getElementById("legend3").style.fontStyle = styl;
+                document.getElementById("legend4").style.fontStyle = styl;
+                document.getElementById("legend5").style.fontStyle = styl;
+            }
+            function resetStyle()
+            {
+                document.getElementById("logout").style.fontWeight = "initial";
+                document.getElementById("fontStyle").style.fontWeight = "initial";
+                document.getElementById("fontColor").style.fontWeight = "initial";
+                document.getElementById("backColor").style.fontWeight = "initial";
+                document.getElementById("dashboard").style.fontWeight = "initial";
+                document.getElementById("type1").style.fontWeight = "initial";
+                document.getElementById("type2").style.fontWeight = "initial";
+                document.getElementById("type3").style.fontWeight = "initial";
+                document.getElementById("type4").style.fontWeight = "initial";
+                document.getElementById("type5").style.fontWeight = "initial";
+                document.getElementById("type6").style.fontWeight = "initial";
+                document.getElementById("type7").style.fontWeight = "initial";
+                document.getElementById("type8").style.fontWeight = "initial";
+                document.getElementById("type9").style.fontWeight = "initial";
+                document.getElementById("type10").style.fontWeight = "initial";
+                document.getElementById("reset1").style.fontWeight = "initial";
+                document.getElementById("reset2").style.fontWeight = "initial";
+                document.getElementById("countries").style.fontWeight = "initial";
+                document.getElementById("per1").style.fontWeight = "initial";
+                document.getElementById("per2").style.fontWeight = "initial";
+                document.getElementById("per3").style.fontWeight = "initial";
+                document.getElementById("per4").style.fontWeight = "initial";
+                document.getElementById("per5").style.fontWeight = "initial";
+                document.getElementById("coun1").style.fontWeight = "initial";
+                document.getElementById("coun2").style.fontWeight = "initial";
+                document.getElementById("coun3").style.fontWeight = "initial";
+                document.getElementById("coun4").style.fontWeight = "initial";
+                document.getElementById("coun5").style.fontWeight = "initial";
+                document.getElementById("legend1").style.fontWeight = "initial";
+                document.getElementById("legend2").style.fontWeight = "initial";
+                document.getElementById("legend3").style.fontWeight = "initial";
+                document.getElementById("legend4").style.fontWeight = "initial";
+                document.getElementById("legend5").style.fontWeight = "initial";
+
+                document.getElementById("adminName").style.fontFamily = "initial";
+                document.getElementById("logout").style.fontFamily = "initial";
+                document.getElementById("fontStyle").style.fontFamily = "initial";
+                document.getElementById("fontColor").style.fontFamily = "initial";
+                document.getElementById("backColor").style.fontFamily = "initial";
+                document.getElementById("dashboard").style.fontFamily = "initial";
+                document.getElementById("bold").style.fontFamily = "initial";
+                document.getElementById("italic").style.fontFamily = "initial";
+                document.getElementById("normal").style.fontFamily = "initial";
+                document.getElementById("reset1").style.fontFamily = "initial";
+                document.getElementById("reset2").style.fontFamily = "initial";
+                document.getElementById("countries").style.fontFamily = "initial";
+                document.getElementById("per1").style.fontFamily = "initial";
+                document.getElementById("per2").style.fontFamily = "initial";
+                document.getElementById("per3").style.fontFamily = "initial";
+                document.getElementById("per4").style.fontFamily = "initial";
+                document.getElementById("per5").style.fontFamily = "initial";
+                document.getElementById("coun1").style.fontFamily = "initial";
+                document.getElementById("coun2").style.fontFamily = "initial";
+                document.getElementById("coun3").style.fontFamily = "initial";
+                document.getElementById("coun4").style.fontFamily = "initial";
+                document.getElementById("coun5").style.fontFamily = "initial";
+                document.getElementById("legend1").style.fontFamily = "initial";
+                document.getElementById("legend2").style.fontFamily = "initial";
+                document.getElementById("legend3").style.fontFamily = "initial";
+                document.getElementById("legend4").style.fontFamily = "initial";
+                document.getElementById("legend5").style.fontFamily = "initial";
+            }
+            function changeFontColor(color)
+            {
+                document.getElementById("adminName").style.color = color;
+                document.getElementById("logout").style.color = color;
+                document.getElementById("fontStyle").style.color = color;
+                document.getElementById("fontColor").style.color = color;
+                document.getElementById("backColor").style.color = color;
+                document.getElementById("dashboard").style.color = color;
+                document.getElementById("bold").style.color = color;
+                document.getElementById("italic").style.color = color;
+                document.getElementById("normal").style.color = color;
+                document.getElementById("type1").style.color = color;
+                document.getElementById("type2").style.color = color;
+                document.getElementById("type3").style.color = color;
+                document.getElementById("type4").style.color = color;
+                document.getElementById("type5").style.color = color;
+                document.getElementById("type6").style.color = color;
+                document.getElementById("type7").style.color = color;
+                document.getElementById("type8").style.color = color;
+                document.getElementById("type9").style.color = color;
+                document.getElementById("type10").style.color = color;
+                document.getElementById("reset1").style.color = color;
+                document.getElementById("reset2").style.color = color;
+                document.getElementById("countries").style.color = color;
+                document.getElementById("per1").style.color = color;
+                document.getElementById("per2").style.color = color;
+                document.getElementById("per3").style.color = color;
+                document.getElementById("per4").style.color = color;
+                document.getElementById("per5").style.color = color;
+                document.getElementById("coun1").style.color = color;
+                document.getElementById("coun2").style.color = color;
+                document.getElementById("coun3").style.color = color;
+                document.getElementById("coun4").style.color = color;
+                document.getElementById("coun5").style.color = color;
+                document.getElementById("legend1").style.color = color;
+                document.getElementById("legend2").style.color = color;
+                document.getElementById("legend3").style.color = color;
+                document.getElementById("legend4").style.color = color;
+                document.getElementById("legend5").style.color = color;
+            }
+            function resetColor()
+            {
+                document.getElementById("adminName").style.color = "white";
+                document.getElementById("logout").style.color = "white";
+                document.getElementById("fontStyle").style.color = "white";
+                document.getElementById("fontColor").style.color = "white";
+                document.getElementById("backColor").style.color = "white";
+                document.getElementById("dashboard").style.color = "initial";
+                document.getElementById("bold").style.color = "initial";
+                document.getElementById("italic").style.color = "initial";
+                document.getElementById("normal").style.color = "initial";
+                document.getElementById("type1").style.color = "initial";
+                document.getElementById("type2").style.color = "initial";
+                document.getElementById("type3").style.color = "initial";
+                document.getElementById("type4").style.color = "initial";
+                document.getElementById("type5").style.color = "initial";
+                document.getElementById("type6").style.color = "initial";
+                document.getElementById("type7").style.color = "initial";
+                document.getElementById("type8").style.color = "initial";
+                document.getElementById("type9").style.color = "initial";
+                document.getElementById("type10").style.color = "initial";
+                document.getElementById("reset1").style.color = "white";
+                document.getElementById("reset2").style.color = "white";
+                document.getElementById("countries").style.color = "initial";
+                document.getElementById("per1").style.color = "initial";
+                document.getElementById("per2").style.color = "initial";
+                document.getElementById("per3").style.color = "initial";
+                document.getElementById("per4").style.color = "initial";
+                document.getElementById("per5").style.color = "initial";
+                document.getElementById("coun1").style.color = "initial";
+                document.getElementById("coun2").style.color = "initial";
+                document.getElementById("coun3").style.color = "initial";
+                document.getElementById("coun4").style.color = "initial";
+                document.getElementById("coun5").style.color = "initial";
+                document.getElementById("legend1").style.color = "initial";
+                document.getElementById("legend2").style.color = "initial";
+                document.getElementById("legend3").style.color = "initial";
+                document.getElementById("legend4").style.color = "initial";
+                document.getElementById("legend5").style.color = "initial";
+            }
+
+    </script>
+</head>
+
+<body>
+
+    <header>
+      <a href="home.html"> <input id="logout" type="button" value="log out" /></a>  
+        <input class="homePageButton" type="button" onclick="defaultPage()" />
+
+    </header>
+
+    <div class="HeaderDiv">
+        <img src="images/logo.png" class="logo" />
+    </div>
+
+    <div id="asideDiv">
+        <img class="adminPic" src="images/adminPic.png" alt="Admin Profile Photo" />
+        <figcaption id="adminName">Rehab</figcaption>
+        <hr style="margin-top: 30px" align="center" width="80%" />
+        <ul>
+            <li> <input class="listButton" id="fontStyle" type="button" value="font style" onclick="fontStylePage()"> </li>
+            <li> <input class="listButton" id="fontColor" type="button" value="font color" onclick="fontColorPage()"> </li>
+            <li> <input class="listButton" id="backColor" type="button" value="background color" onclick="backgroundPage()"> </li>
+        </ul>
+    </div>
+
+    <div class="contentDiv" id="mainContentDiv">
+        <p id="dashboard">dashboard</p>
+        <!-- the div which appears by default when the user login as an admin-->
+        <div id="visitedCountriesDiv">
+            <p id="countries" style="margin: 20px 30px; font-size: 25px;">most visited countries</p>
+            <img class="worldMapPic" src="images/worldMap.jpg" />
+            <ul class="countriesList">
+                <label id="coun1">USA</label>
+                <label id="per1" class="percentage">25%</label>
+                <li><meter class="usa" value="0.45"></meter></li>
+                <label id="coun2">russia</label>
+                <label id="per2" class="percentage">10%</label>
+                <li><meter class="russia" value="0.3"></meter></li>
+                <label id="coun3">france</label>
+                <label id="per3" class="percentage">30%</label>
+                <li><meter class="france" value="0.5"></meter></li>
+                <label id="coun4">turkey</label>
+                <label id="per4" class="percentage">15%</label>
+                <li><meter class="turkey" value="0.35"></meter></li>
+                <label id="coun5">china</label>
+                <label id="per5" class="percentage">25%</label>
+                <li><meter class="china" value="0.4"></meter></li>
+            </ul>
+        </div>
+
+        <!-- the div which appears when the user click on font style button-->
+        <div style="display: none;" id="fontStyleDiv">
+            <fieldset class="fontStyleFieldset" id="fontType">
+                <legend id="legend1">font types</legend>
+                <ul style="margin-left: 20px;">
+                    <li><input id="type1" class="fontStyleButtons" style=" font-family:cochin;" type="button" value="cochin" onclick="changeFontType('cochin')" /></li>
+                    <li><input id="type2" class="fontStyleButtons" style=" font-family:Arial;" type="button" value="arial" onclick="changeFontType('arial')" /></li>
+                    <li><input id="type3" class="fontStyleButtons" style=" font-family:broadway;" type="button" value="broadway" onclick="changeFontType('broadway')" /></li>
+                    <li><input id="type4" class="fontStyleButtons" style=" font-family:fantasy;" type="button" value="fantasy" onclick="changeFontType('fantasy')" /></li>
+                    <li><input id="type5" class="fontStyleButtons" style=" font-family:cursive;" type="button" value="cursive" onclick="changeFontType('cursive')" /></li>
+                    <li><input id="type6" class="fontStyleButtons" style=" font-family:'Franklin Gothic Medium';" type="button" value="franklin" onclick="changeFontType('Franklin Gothic Medium')" /></li>
+                    <li><input id="type7" class="fontStyleButtons" style=" font-family:cambria;" type="button" value="cambria" onclick="changeFontType('cambria')" /></li>
+                    <li><input id="type8" class="fontStyleButtons" style=" font-family:monospace;" type="button" value="monospace" onclick="changeFontType('monospace')" /></li>
+                    <li><input id="type9" class="fontStyleButtons" style=" font-family:courier;" type="button" value="courier" onclick="changeFontType('courier')" /></li>
+                    <li><input id="type10" class="fontStyleButtons" style=" font-family:tahoma;" type="button" value="tahoma" onclick="changeFontType('tahoma')" /></li>
+                </ul>
+            </fieldset>
+            <fieldset class="fontStyleFieldset2" id="fontType">
+                <legend id="legend2">font style</legend>
+                <ul style="margin-left: 20px;">
+                    <li><input id="bold" class="fontStyleButtons2" style="font-weight: bold;" type="button" value="bold" onclick="boldWeight('bold')" /></li>
+                    <li><input id="italic" class="fontStyleButtons2" style="font-style: italic;" type="button" value="italic" onclick="changeFontStyle('italic')" /></li>
+                    <li><input id="normal" class="fontStyleButtons2" style="font-style: normal" type="button" value="normal" onclick="changeFontStyle('normal')" /></li>
+                </ul>
+            </fieldset>
+            <fieldset class="fontStyleFieldset3" id="fontType">
+                <legend id="legend3">reset to default</legend>
+                <input class="fontStyleButtons3" id="reset1" type="button" value="reset" onclick="resetStyle()" />
+            </fieldset>
+        </div>
+
+        <!-- the div which appears when the user click on font color button-->
+        <div style="display: none;" id="fontColorDiv">
+            <fieldset class="fontColorFieldset">
+                <p id="legend4" style="font-size: 35px; text-align:center; margin: 20px;">font colors</p>
+                <hr align="center" width="80%" />
+                <ul>
+                    <li><input style="background-color: blue;" class="fontColorButtons" type="button" onclick="changeFontColor('blue')" /></li>
+                    <li><input style="background-color: yellow;" class="fontColorButtons" type="button" onclick="changeFontColor('yellow')" /></li>
+                    <li><input style="background-color: green;" class="fontColorButtons" type="button" onclick="changeFontColor('green')" /></li>
+                    <li><input style="background-color: red;" class="fontColorButtons" type="button" onclick="changeFontColor('red')" /></li>
+                    <li><input style="background-color: purple;" class="fontColorButtons" type="button" onclick="changeFontColor('purple')" /></li>
+                    <li><input style="background-color: black;" class="fontColorButtons" type="button" onclick="changeFontColor('black')" /></li>
+                    <li><input style="background-color: skyblue;" class="fontColorButtons" type="button" onclick="changeFontColor('skyblue')" /></li>
+                    <li><input style="background-color: gray;" class="fontColorButtons" type="button" onclick="changeFontColor('gray')" /></li>
+                </ul>
+            </fieldset>
+            <input id="reset2" class="fontColorButtonsReset" type="button" value="reset" onclick="resetColor()" />
+        </div>
+
+        <!-- the div which appears when the user click on font color button-->
+        <div style="display: none;" id="backgroundDiv">
+            <fieldset class="backgroundFieldset">
+                <p id="legend5" style="font-size: 35px; text-align:center; margin: 20px;">background colors</p>
+                <hr align="center" width="80%" />
+                <ul>
+                    <li><input style="background-color: #F8F9F9;" class="fontColorButtons" type="button" onclick="changeBackground('#F8F9F9')" /></li>
+                    <li><input style="background-color: #f1d2fc;" class="fontColorButtons" type="button" onclick="changeBackground('#f1d2fc')" /></li>
+                    <li><input style="background-color: #D0ECE7 ;" class="fontColorButtons" type="button" onclick="changeBackground('#D0ECE7')" /></li>
+                    <li><input style="background-color: #88cdff ;" class="fontColorButtons" type="button" onclick="changeBackground('#88cdff')" /></li>
+                    <li><input style="background-color: #FCF3CF;" class="fontColorButtons" type="button" onclick="changeBackground('#FCF3CF')" /></li>
+                    <li><input style="background-color: #D6DBDF;" class="fontColorButtons" type="button" onclick="changeBackground('#D6DBDF')" /></li>
+                    <li><input style="background-color: #E6B0AA ;" class="fontColorButtons" type="button" onclick="changeBackground('#E6B0AA')" /></li>
+                    <li><input style="background-color: #ccffcc;" class="fontColorButtons" type="button" onclick="changeBackground('#ccffcc')" /></li>
+                    <li><input style="background-color: #BB8FCE;" class="fontColorButtons" type="button" onclick="changeBackground('#BB8FCE')" /></li>
+                    <li><input style="background-color: #EC7063 ;" class="fontColorButtons" type="button" onclick="changeBackground('#EC7063')" /></li>
+                    <li><input style="background-color: #F5B041;" class="fontColorButtons" type="button" onclick="changeBackground('#F5B041')" /></li>
+                    <li><input style="background-color: #7FB3D5;" class="fontColorButtons" type="button" onclick="changeBackground('#7FB3D5')" /></li>
+                </ul>
+            </fieldset>
+        </div>
+        <!-- the end of the main content div-->
+    </div>
+
+
+</body>
+
+</html>

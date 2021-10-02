@@ -1,0 +1,93 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>sign in</title>
+    <style>
+
+        body {
+            BACKGROUND-SIZE: COVER;
+            background-repeat: no-repeat;
+        }
+
+        div {
+            margin: 180px;
+            font-size: 30px;
+        }
+
+        input[type=text], input[type=password] {
+            width: 60%;
+            padding: 12px 0px 12px 5px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type=submit], input[type=reset] {
+            width: 40%;
+            background-color: #4caf50;
+            color: white;
+            padding: 12px 0px 12px 5px;
+            margin: 8px 0px;
+            border-radius: 4px;
+        }
+    </style>
+
+    <script type="text/javascript">
+function validateform(){
+    var valid = true;
+    if (document.inputform.password.value == "" && document.inputform.email.value == "")
+    {
+        alert("form is empty");
+        document.inputform.password.focus();
+        valid = false;
+    }
+            else if (document.inputform.email.value=="") {
+                alert("email is empty");
+                document.inputform.email.focus();
+                valid=false;
+            }
+            else if (document.inputform.password.value == "" ) {
+                alert("password is empty");
+                document.inputform.password.focus();
+                valid=false;
+            }
+
+            else if (document.inputform.email.value!="bakr@cis.com")
+			{
+            alert("please enter valid email");
+                document.inputform.email.focus();
+                valid=false;
+            }
+    else if (document.inputform.password.value!= "123456") {
+        alert("please enter valid password");
+        document.inputform.email.focus();
+        valid = false;
+    }
+
+    return valid;
+
+        }</script>
+
+</head>
+<body background="images/back-n.jpeg">
+    <nav>
+        <a href="home.html" id="link"><b style="font-size:20px;">Home</b></a>|
+        <a href="sign up.html" id="link"><b style="font-size:20px;">Sign up</b></a>|
+        <a href="log in.html" id="link"> <b style="font-size:20px; ">sign in & Ticket booking</b> </a>|
+        <a href="admin.html" id="link"> <b style="font-size: 20px;  background-color: cadetblue">Log in (Admin)</b></a>|
+        <a href="about us.html"><b style="font-size: 20px; ">About Us</b></a> |
+
+    </nav>
+    <div align="center">
+        <h1>Log in (Admin)</h1><hr>
+        <form name="inputform" onsubmit=" return validateform()" action="admin-page.html">
+            <label for="fieldid">Email</label><br>
+            <input type="text" name="email" placeholder="your Email..." /><br>
+            <label for="fieldid">Password</label><br>
+            <input type="password" name="password" placeholder="your Password..." /><br><br>
+            <input type="submit" value="submit" /><br>
+            <input type="reset" value="register" />
+        </form>
+    </div>
+</body>
+</html>

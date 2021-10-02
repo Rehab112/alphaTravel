@@ -1,0 +1,130 @@
+﻿<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+    <TITLE>Booking</TITLE>
+    <meta charset="utf-8" />
+    <style>
+        fieldset {
+            border-radius: 10px;
+            text-align: center;
+            color: blue;
+            background-color: cornsilk;
+            width: 500px;
+            margin-left: 200px;
+            margin-top: 245px;
+            border-left: 50px;
+            border-right: 50px;
+            font-size: 18px;
+            border-style: solid;
+            border-top-color: blue;
+        }
+
+        BODY {
+            BACKGROUND-SIZE: COVER;
+            background-repeat: no-repeat;
+        }
+
+        .caption {
+            font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript">function validata(){
+		var valid=true;
+			if(document.dataform.from.value==""){
+				alert("From is empty");
+				document.dataform.from.focus();
+				valid=false;
+			}
+			else if(document.dataform.to.value==""){
+				alert("To is empty");
+				document.dataform.to.focus();
+				valid=false;
+			}
+			else if(document.dataform.DepartureDate.value==""){
+					alert("Departure Date is empty");
+					document.dataform.DepartureDate.focus();
+					valid=false;
+				}
+			else if(document.dataform.ReturnDate.value==""){
+					alert("Return Date is empty");
+					document.dataform.ReturnDate.focus();
+					valid=false;
+				}
+			else if(document.dataform.phonenumber.value==""){
+					alert("phone number is empty");
+					document.dataform.phonenumber.focus();
+					valid=false;
+				}
+			else if(document.dataform.visa.value==""){
+					alert("VISA is empty");
+					document.dataform.visa.focus();
+					valid=false;
+				}
+			else {
+				 alert("you will recieve your travel's ticket id through SMS!");
+            }
+    return valid;
+		}</script>
+</HEAD>
+<BODY background="images/back-t.jpeg">
+    <fieldset class="ah">
+        <h1> Booking Now</h1>
+        <form name="dataform" onsubmit=" return validata()" action="home.html">
+            <input type="radio" name="trip type" value="0" />Round trip
+            <input type="radio" name="trip type" value="1" checked="checked" />One Way
+            <br />
+            <br />From: <input type="text" id="destination" name="from" placeholder="choose city" />
+            &nbsp &nbsp To: <input type="text" id="destination" name="to" placeholder="choose city" /><br />
+            <br /><label>Departure Date:&nbsp&nbsp</label><input type="date" name="DepartureDate" />
+            <br /><br /> <label class="ahmed">Return Date:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </label><input type="date" name="ReturnDate" />
+            <br /> <br>
+            &nbsp&nbsp
+            <select>
+                <option value="Adult 1">Adult 1</option>
+                <option value="Adult 2">Adult 2</option>
+                <option value="Adult 3">Adult 3</option>
+                <option value="Adult 4">Adult 4</option>
+                <option value="Adult 5">Adult 5</option>
+                <option value="Adult 6">Adult 6</option>
+            </select>
+            &nbsp
+
+            <select>
+                <option value="0 child(ren)">0 child(ren)</option>
+                <option value="1 child(ren)">1 child(ren)</option>
+                <option value="2 child(ren)">2 child(ren)</option>
+                <option value="3 child(ren)">3 child(ren)</option>
+                <option value="4 child(ren)">4 child(ren)</option>
+            </select>
+            &nbsp
+            <select>
+                <option value="0 infant(s)">0 infant(s)</option>
+                <option value="1 infant(s)">1 infant(s)</option>
+
+            </select>
+            &nbsp
+            <br />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <label class="caption">2-11 years</label>
+
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <label class="caption">under 2 years</label>
+            <br /><label>Class</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <br />
+            <select>
+                <option value="first class">first class</option>
+                <option value="second class">second class</option>
+                <option value="third class">third class</option>
+                <option value="business">business</option>
+            </select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <br /><br />
+            <label>Phone number:&nbsp&nbsp </label><input type="text" name="phonenumber" placeholder="phone number" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <br />
+            <br />
+            <label>VISA: </label>&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="visa" placeholder="xxxx-xxxx-xxx" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <br />
+            <br>
+
+            <input type="submit" value="Book"  />
+        </form>
+
+    </fieldset>
+</BODY>
+</HTML>
